@@ -28,7 +28,14 @@
    - 持久化binlog
    - 更新后数据落盘（doublewrite）
 ### 3、事务的四个特性以及mysql如何保证事务
-
+1. 原子性
+通过redo log和 undo log保证事务只有提交和回滚两种状态
+2. 一致性
+由其他三种特性保证
+3. 隔离性
+通过MVCC加锁保证
+4. 持久性
+binlog保证数据持久化
 ### 4、Mysql的锁机制及MVCC
 
 ### 5、Mysql索引机制
