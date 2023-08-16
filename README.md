@@ -12,13 +12,14 @@ Server层：连接客户端进行权限校验-（查询缓存）-解析器-优�
    - 优化器-执行器
 2. 引擎层innodb:
    - 进入表空间查询索引树
-   - 加载到bufferpool（内存缓冲池）
+   - 加载到bufferpool（内存缓冲池,**可能延迟加载，使用changer buffer先保存修改记录，不实际从磁盘加载页**）
    - 保存undo日志
    - 更新redo log buffer
    - 提交事务
    - 持久化redo log
    - 持久化binlog
-###3、事务的四个特性以及mysql如何保证事务
+   - 更新后数据落盘（doublewrite）
+### 3、事务的四个特性以及mysql如何保证事务
 
 ### 4、Mysql的锁机制及MVCC
 
